@@ -24,7 +24,7 @@ const Navbar = () => {
                 <ul className='w-full text-3xl font bold text-[#00df9] m-4'>
                     <li className='p-4 border-b border-gray-600'>Home</li>
                     <li className='p-4 border-b border-gray-600'>Random</li>
-                    <li className='p-4 border-b border-gray-600'>Search</li>
+                    <li className='p-4 border-b border-gray-600'>Search </li>
                     <li className='p-4'>Add</li>
                 </ul>
             </div>
