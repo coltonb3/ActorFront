@@ -31,7 +31,7 @@ const search = (data) => {
 
 {/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
     <div class='flex items-center flex-col py-16'>
-       <input type="search" placeholder='search' class='w-full md:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
+       <input type="search" placeholder='search' class='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
        <br/>
        <Other data={search(Actor)}/>
     </div>
