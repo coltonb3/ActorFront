@@ -24,8 +24,8 @@ const Add = (props) => {
             <input type="text" name='knownFor' value={actor.knownFor} onChange={handleChange} />
             <label htmlFor="bio">Bio: </label>
             <input type="text" name='bio' value={actor.bio} onChange={handleChange} /> 
-            {/* <label htmlFor="imageURL">Image: </label>
-            <input type="text" name='image' value={actor.imageURL} onChange={handleChange} /> */}
+            <label htmlFor="imageURL">Image: </label>
+            <input type="text" name='image' onChange={handleChange} />
             <br/>
             <br/>
             <input type="submit" />

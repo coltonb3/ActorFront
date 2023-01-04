@@ -19,6 +19,14 @@ const keys = ['first_name', 'DOB']
 //    );
 // }
 
+const handleCreate =(addActor) => {
+  axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
+  .then((response) => {
+  console.log(response)
+  getActors()
+  })
+}
+
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
   .then((response) => setActors(response.data),
@@ -28,13 +36,6 @@ const getActors = () => {
   console.log(actors)
 }
 
-const handleCreate =(addActor) => {
-  axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
-  .then((response) => {
-  console.log(response)
-  getActors()
-  })
-}
 useEffect(() => {
   getActors()
  }, [])
