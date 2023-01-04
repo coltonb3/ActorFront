@@ -59,7 +59,16 @@ useEffect(() => {
   return (
 
     <div className="App">
+
     <Navbar />
+
+    <Navbar handleCreate={handleCreate} />
+    <div className="grid grid-cols-3 pl-2 content-center">
+    <Cards />
+
+    <Add handleCreate={handleCreate}/>
+
+
     
     <Cards actors={actors}/>
   
