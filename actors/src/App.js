@@ -5,12 +5,13 @@ import Cards from './components/cards';
 import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
+import Edit from './components/edit'
 import {Actor} from './data/data';
 
 
 function App() {
 const [query, setQuery] = useState('')
-const [actors, setActors] = useState('')
+const [actors, setActors] = useState([])
 const keys = ['first_name', 'DOB']
 
 // search feature 
@@ -18,31 +19,40 @@ const keys = ['first_name', 'DOB']
 //    return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query))
 //    );
 // }
+
+
+const getActors = () => {
+  axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
+    .then((response) => setActors(response.data),
+    (err) => console.error(err))
+     .catch((error) => console.error(error))
+     console.log(actors)
+}
+
+const handleCreate =(addActor) => {
+  axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
+  .then((response) =>{
+  console.log(response)
+  getActors()
+  })
+}
+
+const handleUpdate = (editActor) => {
+  axios
+    .put('https://pacific-hollows-96763.herokuapp.com/api/actors/'+ editActor.id, editActor)
+    .then((response)=>{
+      getActors()
+    })
+}
+
 const handleDelete = (event) => {
   axios
-    .delete('https://pacific-hollows-96763.herokuapp.com/api/actors' + event.target.value)
+    .delete('https://pacific-hollows-96763.herokuapp.com/api/actors/' + event.target.value)
     .then((response) => {
       getActors()
     })
 }
 
-const getActors = () => {
-  axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
-  .then((response) => setActors(response.data),
-  (err) => console.error(err)
-  )
-  .catch((error) => console.error(error))
-  console.log(actors)
-}
-
-
-const handleCreate =(addActor) => {
-  axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
-  .then((response) =>{
-    console.log(response)
-    getActors()
-  })
-}
 useEffect(() => {
   getActors()
  }, [])
@@ -56,25 +66,23 @@ useEffect(() => {
     <Cards />
     <Cards />
     <Add handleCreate={handleCreate}/>
-    {/* <div className='list'>
-      {actors.map((actors) => {
+
+    <div className='list'>
+      {actors.map((actor) => {
+
         return(
-          <div className='actor' key={actors.id}>
-            <h1>Name: {actors.name}</h1>
-            </div>
+          <div className='actor' key={actor.id}>
+            <h1>Name: {actor.name}</h1>
+            <h1>Age: {actor.age}</h1>
+            <h1>Known For: {actor.knownFor}</h1>
+            <h1>Bio: {actor.bio}</h1>
+            <img src={actor.imageURL} alt="something"/>
+            <button value={actor.id} onClick={handleDelete}>X</button>
+            <Edit actor={actor} handleUpdate={handleUpdate}/> 
+          </div>
         )
       })}
-    </div> */}
-     </div>
-     <div className="grid grid-cols-3 pl-2 content-center">
-        {actors.map((actor) => {
-          return (
-            <div key={actor.id}>
-              <h4>Name: {actor.name}</h4>
-              <h5>Age: {actor.age}</h5>
-              <button onClick={handleDelete} value={actor.id}>
-                X
-              </button>
+
 
             </div>
           )
