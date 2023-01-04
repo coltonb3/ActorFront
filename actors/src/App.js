@@ -58,58 +58,41 @@ useEffect(() => {
 
   return (
     <div className="App">
+
     <Navbar handleCreate={handleCreate} />
-    <Add handleCreate={handleCreate}/>
-<<<<<<< HEAD
-    <div className='list'>
-      {actors.map((actor) => {
-        return(
-          <div className='actor' key={actor.id}>
-            <h1>Name: {actor.name}</h1>
-            <h1>Age: {actor.age}</h1>
-            <h1>Known For: {actor.knownFor}</h1>
-            <h1>Bio: {actor.bio}</h1>
-            <img src={actor.imageURL} alt="something"/>
-            <button value={actor.id} onClick={handleDelete}>X</button>
-            <Edit actor={actor} handleUpdate={handleUpdate}/> 
-          </div>
-        )
-      })}
-    </div> 
-
-    
-
-    </div>
-    {/* seperate search function without returning multiple lines of data */}
-    {/* <Search/> */}
 
 
-{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
-    {/* <div className='flex items-center flex-col py-16'>
-       <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
-       <br/>
-       <Other data={search(Actor)}/>
-    </div> */}
-=======
     <Cards actors={actors}/>
->>>>>>> af9a0e79cda20b75de41855e773449a53535de92
-    </div>
+
+
+    <Add handleCreate={handleCreate}/>
+
+  
   
 
 
 
     
-//     {/* seperate search function without returning multiple lines of data */}
-//     {/* <Search/> */}
+    {/* seperate search function without returning multiple lines of data */}
+    {/* <Search/> */}
 
 
-// {/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
-//     {/* <div className='flex items-center flex-col py-16'>
+
+{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
+     {/* <div className='flex items-center flex-col py-16'>
+//        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
+//        <br/>
+//   <Other data={search(Actor)}/> */}
+ 
+
+{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
+     {/* <div className='flex items-center flex-col py-16'>
 //        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
 //        <br/>
 //        <Other data={search(Actor)}/>
-//     </div> */}
+//      */}
     
+</div>
   );
 }
 
