@@ -6,6 +6,7 @@ import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
 import Edit from './components/edit'
+import Edit from './components/edit'
 import {Actor} from './data/data';
 
 
@@ -35,13 +36,31 @@ const getActors = () => {
      console.log(actors)
 }
 
+
 const handleCreate =(addActor) => {
   axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
   .then((response) =>{
-  console.log(response)
-  getActors()
+    console.log(response)
+    getActors()
   })
 }
+
+const handleUpdate = (editActor) => {
+  axios
+    .put('https://pacific-hollows-96763.herokuapp.com/api/actors/'+ editActor.id, editActor)
+    .then((response)=>{
+      getActors()
+    })
+}
+
+const handleDelete = (event) => {
+  axios
+    .delete('https://pacific-hollows-96763.herokuapp.com/api/actors/' + event.target.value)
+    .then((response) => {
+      getActors()
+    })
+}
+
 
 const handleUpdate = (editActor) => {
   axios
@@ -64,27 +83,17 @@ useEffect(() => {
     <Cards />
     <Cards />
     <Add handleCreate={handleCreate}/>
-    {/* <div className='list'>
-      {actors.map((actors) => {
-        return(
-          <div className='actor' key={actor.id}>
-            <h1>Name: {actor.name}</h1>
 
-            <Edit actor={actor} handleUpdate={handleUpdate}/> 
-          </div>
+    <div className='list'>
+      {actors.map((actor) => {
+
+        return(
+          <div className='actor' key={actors.id}>
+            <h1>Name: {actors.name}</h1>
+            </div>
         )
       })}
-    </div> */}
-     </div>
-     <div className="grid grid-cols-3 pl-2 content-center">
-        {actors.map((actor) => {
-          return (
-            <div key={actor.id}>
-              <h4>Name: {actor.name}</h4>
-              <h5>Age: {actor.age}</h5>
-              <button onClick={handleDelete} value={actor.id}>
-                X
-              </button>
+
 
             </div>
           )
