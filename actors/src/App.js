@@ -61,8 +61,13 @@ useEffect(() => {
 
     <Navbar handleCreate={handleCreate} />
 
+
     <Cards actors={actors}/>
 
+
+    <Add handleCreate={handleCreate}/>
+
+  
   
 
 
