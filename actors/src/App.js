@@ -57,14 +57,10 @@ useEffect(() => {
  }, [])
 
   return (
-
     <div className="App">
-    <Navbar />
-    <div className="grid grid-cols-3 pl-2 content-center">
-    <Cards />
-    <Cards />
-    <Cards />
+    <Navbar handleCreate={handleCreate} />
     <Add handleCreate={handleCreate}/>
+<<<<<<< HEAD
     <div className='list'>
       {actors.map((actor) => {
         return(
@@ -94,7 +90,26 @@ useEffect(() => {
        <br/>
        <Other data={search(Actor)}/>
     </div> */}
+=======
+    <Cards actors={actors}/>
+>>>>>>> af9a0e79cda20b75de41855e773449a53535de92
     </div>
+  
+
+
+
+    
+//     {/* seperate search function without returning multiple lines of data */}
+//     {/* <Search/> */}
+
+
+// {/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
+//     {/* <div className='flex items-center flex-col py-16'>
+//        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
+//        <br/>
+//        <Other data={search(Actor)}/>
+//     </div> */}
+    
   );
 }
 

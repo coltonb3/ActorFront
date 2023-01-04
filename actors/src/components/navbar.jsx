@@ -1,13 +1,21 @@
 import React, {useState} from 'react'
 import {HiOutlineMenuAlt1} from 'react-icons/hi'
 import {RiCloseCircleLine} from 'react-icons/ri'
+import Add from './add'
 
-const Navbar = () => {
+const Navbar = (props) => {
     const [nav, setNav] = useState(false)
 
     const handleNav = () => {
         setNav(!nav)
     }   
+    const [addActor, setAddActor] = useState(false)
+
+        const handleAddActor = () => {
+            setAddActor(!addActor)
+            console.log("test")
+        }
+
     return (
         <div className='flex justify-between items-center h-20 max-w-[1240px] mx-auto px-4 text-white'>
             <h1 className='w-full text-3xl font-bold text-[#df3000]'>Home</h1>
@@ -17,6 +25,10 @@ const Navbar = () => {
                 <li className='p-4'>Movies</li>
                 <li className='p-4'>Random</li>
             </ul>
+            <button onClick={handleAddActor} className='Add'  > Add </button>
+            <div onClick={handleAddActor} className='hidden z-10 opacity-70'>
+                {!addActor ? <Add handleCreate={props.handleCreate} /> : '' }
+            </div>
             <div onClick={handleNav} className='block md:hidden z-10 opacity-70' >
                 {!nav ?   <RiCloseCircleLine size={20}/> :   <HiOutlineMenuAlt1 size={20}/> }
                 <div className={!nav ? 'fixed left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'fixed left-[-100%] ' }>
@@ -29,7 +41,6 @@ const Navbar = () => {
                 </ul>
             </div>
         </div>
-
         </div>
 
 )       
