@@ -62,7 +62,7 @@ useEffect(() => {
     <Navbar />
     <div className="grid grid-cols-3 pl-2 content-center">
     <Cards />
-    <Add handleCreate={handleCreate}/>
+  
     <div className='list'>
       {actors.map((actor) => {
         return(
