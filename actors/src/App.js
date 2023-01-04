@@ -57,36 +57,27 @@ useEffect(() => {
  }, [])
 
   return (
-
     <div className="App">
-
-    <Navbar />
-
     <Navbar handleCreate={handleCreate} />
-    <div className="grid grid-cols-3 pl-2 content-center">
-    <Cards />
-
     <Add handleCreate={handleCreate}/>
-
-
-    
     <Cards actors={actors}/>
+    </div>
   
 
 
 
     
-    {/* seperate search function without returning multiple lines of data */}
-    {/* <Search/> */}
+//     {/* seperate search function without returning multiple lines of data */}
+//     {/* <Search/> */}
 
 
-{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
-    {/* <div className='flex items-center flex-col py-16'>
-       <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
-       <br/>
-       <Other data={search(Actor)}/>
-    </div> */}
-    </div>
+// {/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
+//     {/* <div className='flex items-center flex-col py-16'>
+//        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
+//        <br/>
+//        <Other data={search(Actor)}/>
+//     </div> */}
+    
   );
 }
 
