@@ -5,7 +5,8 @@ import Cards from './components/cards';
 import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
-import Edit from './components/dit'
+import Edit from './components/Edit'
+
 import {Actor} from './data/data';
 
 
@@ -59,10 +60,12 @@ useEffect(() => {
   return (
 
     <div className="App">
-    <Navbar />
+    <Navbar handleCreate={handleCreate} />
     <div className="grid grid-cols-3 pl-2 content-center">
     <Cards />
+
     <Add handleCreate={handleCreate}/>
+
     <div className='list'>
       {actors.map((actor) => {
         return(
