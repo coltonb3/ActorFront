@@ -30,7 +30,7 @@ const getActors = () => {
 
 const handleCreate =(addActor) => {
   axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
-  .then((response) =>{
+  .then((response) => {
   console.log(response)
   getActors()
   })
