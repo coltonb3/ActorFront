@@ -5,12 +5,13 @@ import Cards from './components/cards';
 import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
+import Edit from './components/edit'
 import {Actor} from './data/data';
 
 
 function App() {
 const [query, setQuery] = useState('')
-const [actors, setActors] = useState('')
+const [actors, setActors] = useState([])
 const keys = ['first_name', 'DOB']
 
 // search feature 
@@ -28,21 +29,28 @@ const handleDelete = (event) => {
 
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
-  .then((response) => setActors(response.data),
-  (err) => console.error(err)
-  )
-  .catch((error) => console.error(error))
-  console.log(actors)
+    .then((response) => setActors(response.data),
+    (err) => console.error(err))
+     .catch((error) => console.error(error))
+     console.log(actors)
 }
-
 
 const handleCreate =(addActor) => {
   axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
   .then((response) =>{
-    console.log(response)
-    getActors()
+  console.log(response)
+  getActors()
   })
 }
+
+const handleUpdate = (editActor) => {
+  axios
+    .put('https://pacific-hollows-96763.herokuapp.com/api/actors/'+ editActor.id, editActor)
+    .then((response)=>{
+      getActors()
+    })
+}
+
 useEffect(() => {
   getActors()
  }, [])
@@ -59,9 +67,11 @@ useEffect(() => {
     {/* <div className='list'>
       {actors.map((actors) => {
         return(
-          <div className='actor' key={actors.id}>
-            <h1>Name: {actors.name}</h1>
-            </div>
+          <div className='actor' key={actor.id}>
+            <h1>Name: {actor.name}</h1>
+
+            <Edit actor={actor} handleUpdate={handleUpdate}/> 
+          </div>
         )
       })}
     </div> */}
