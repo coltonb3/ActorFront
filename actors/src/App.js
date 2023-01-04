@@ -56,7 +56,7 @@ useEffect(() => {
     <Cards />
     <Cards />
     <Add handleCreate={handleCreate}/>
-      {/* <div className='list'>
+    {/* <div className='list'>
       {actors.map((actors) => {
         return(
           <div className='actor' key={actors.id}>
@@ -65,9 +65,24 @@ useEffect(() => {
         )
       })}
     </div> */}
-    
+     </div>
+     <div className="grid grid-cols-3 pl-2 content-center">
+        {actors.map((actor) => {
+          return (
+            <div key={actor.id}>
+              <h4>Name: {actor.name}</h4>
+              <h5>Age: {actor.age}</h5>
+              <button onClick={handleDelete} value={actor.id}>
+                X
+              </button>
 
-    </div>
+            </div>
+          )
+        })}
+      </div>
+      
+
+   
     {/* seperate search function without returning multiple lines of data */}
     {/* <Search/> */}
 
