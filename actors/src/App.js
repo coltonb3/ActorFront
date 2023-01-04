@@ -18,6 +18,14 @@ const keys = ['first_name', 'DOB']
 //    return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query))
 //    );
 // }
+const handleDelete = (event) => {
+  axios
+    .delete('https://pacific-hollows-96763.herokuapp.com/api/actors' + event.target.value)
+    .then((response) => {
+      getActors()
+    })
+}
+
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
   .then((response) => setActors(response.data),
