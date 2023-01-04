@@ -6,7 +6,6 @@ import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
 import Edit from './components/Edit'
-
 import {Actor} from './data/data';
 
 
@@ -60,31 +59,23 @@ useEffect(() => {
   return (
 
     <div className="App">
+
+    <Navbar />
+
     <Navbar handleCreate={handleCreate} />
     <div className="grid grid-cols-3 pl-2 content-center">
     <Cards />
 
     <Add handleCreate={handleCreate}/>
 
-    <div className='list'>
-      {actors.map((actor) => {
-        return(
-          <div className='actor' key={actor.id}>
-            <h1>Name: {actor.name}</h1>
-            <h1>Age: {actor.age}</h1>
-            <h1>Known For: {actor.knownFor}</h1>
-            <h1>Bio: {actor.bio}</h1>
-            <img src={actor.imageURL} alt="something"/>
-            <button value={actor.id} onClick={handleDelete}>X</button>
-            <Edit actor={actor} handleUpdate={handleUpdate}/> 
-          </div>
-        )
-      })}
-    </div> 
 
     
+    <Cards actors={actors}/>
+  
 
-    </div>
+
+
+    
     {/* seperate search function without returning multiple lines of data */}
     {/* <Search/> */}
 
