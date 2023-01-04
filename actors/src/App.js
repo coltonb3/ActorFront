@@ -45,6 +45,14 @@ const handleUpdate = (editActor) => {
     })
 }
 
+const handleDelete = (event) => {
+  axios
+    .delete('https://pacific-hollows-96763.herokuapp.com/api/actors/' + event.target.value)
+    .then((response) => {
+      getActors()
+    })
+}
+
 useEffect(() => {
   getActors()
  }, [])
@@ -63,7 +71,11 @@ useEffect(() => {
         return(
           <div className='actor' key={actor.id}>
             <h1>Name: {actor.name}</h1>
-
+            <h1>Age: {actor.age}</h1>
+            <h1>Known For: {actor.knownFor}</h1>
+            <h1>Bio: {actor.bio}</h1>
+            <img src={actor.imageURL} alt="something"/>
+            <button value={actor.id} onClick={handleDelete}>X</button>
             <Edit actor={actor} handleUpdate={handleUpdate}/> 
           </div>
         )
