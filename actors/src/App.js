@@ -59,7 +59,6 @@ useEffect(() => {
   return (
     <div className="App">
     <Navbar handleCreate={handleCreate} />
-    <Add handleCreate={handleCreate}/>
     <Cards actors={actors}/>
     </div>
   
