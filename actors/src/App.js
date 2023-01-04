@@ -20,11 +20,10 @@ const keys = ['first_name', 'DOB']
 // }
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
-  .then((response) => setActors(response.data),
-  (err) => console.error(err)
-  )
-  .catch((error) => console.error(error))
-  console.log(actors)
+    .then((response) => setActors(response.data),
+    (err) => console.error(err))
+     .catch((error) => console.error(error))
+     console.log(actors)
 }
 
 
