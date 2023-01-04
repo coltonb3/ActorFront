@@ -5,7 +5,7 @@ import Cards from './components/cards';
 import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
-import Edit from './components/Edit'
+import Edit from './components/dit'
 import {Actor} from './data/data';
 
 
@@ -19,7 +19,6 @@ const keys = ['first_name', 'DOB']
 //    return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query))
 //    );
 // }
-
 
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
@@ -64,10 +63,8 @@ useEffect(() => {
     <div className="grid grid-cols-3 pl-2 content-center">
     <Cards />
     <Add handleCreate={handleCreate}/>
-
     <div className='list'>
       {actors.map((actor) => {
-
         return(
           <div className='actor' key={actor.id}>
             <h1>Name: {actor.name}</h1>
@@ -80,15 +77,11 @@ useEffect(() => {
           </div>
         )
       })}
+    </div> 
 
+    
 
-            </div>
-          )
-        })}
-      </div>
-      
-
-   
+    </div>
     {/* seperate search function without returning multiple lines of data */}
     {/* <Search/> */}
 
