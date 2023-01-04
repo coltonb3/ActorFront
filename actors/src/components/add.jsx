@@ -25,15 +25,9 @@ const Add = (props) => {
             <label htmlFor="knownFor">Known For: </label>
             <input type="text" name='knownFor' onChange={handleChange} />
             <label htmlFor="bio">Bio: </label>
-<<<<<<< HEAD
-            <input type="text" name='bio' value={actor.bio} onChange={handleChange} /> 
-            <label htmlFor="imageURL">Image: </label>
-            <input type="text" name='image' onChange={handleChange} />
-=======
             <input type="text" name='bio' onChange={handleChange} /> 
             <label htmlFor="imageURL">Image: </label>
             <input type="text" name='imageURL' onChange={handleChange} />
->>>>>>> 34c36ad334206c9b4a0cb039eaa61aaa89f52c61
             <br/>
             <br/>
             <input type="submit" />
