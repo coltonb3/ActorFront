@@ -5,7 +5,7 @@ import Cards from './components/cards';
 import Search from './components/search';
 import Other from './components/other'
 import Add from './components/add'
-import Edit from './components/edit'
+import Edit from './components/Edit'
 import {Actor} from './data/data';
 
 
