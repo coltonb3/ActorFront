@@ -19,14 +19,16 @@ const Add = (props) => {
             <label htmlFor="name">Name:</label>
             <input type="text" name='name' value={actor.name} onChange={handleChange} />
             <label htmlFor="age">Age: </label>
-            <input type="number" name='age' value={actor.age} onChange={handleChange} />
-            <input type="submit" />
+            <input type="text" name='age' value={actor.age} onChange={handleChange} />
             <label htmlFor="knownFor">Known For: </label>
             <input type="text" name='knownFor' value={actor.knownFor} onChange={handleChange} />
             <label htmlFor="bio">Bio: </label>
             <input type="text" name='bio' value={actor.bio} onChange={handleChange} /> 
-            <label htmlFor="imageURL">Image: </label>
-            <input type="text" name='image' value={actor.imageURL} onChange={handleChange} />
+            {/* <label htmlFor="imageURL">Image: </label>
+            <input type="text" name='image' value={actor.imageURL} onChange={handleChange} /> */}
+            <br/>
+            <br/>
+            <input type="submit" />
         </form>
         </>
     )

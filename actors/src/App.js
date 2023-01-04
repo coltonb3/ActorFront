@@ -18,6 +18,7 @@ const keys = ['first_name', 'DOB']
 //    return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query))
 //    );
 // }
+
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
   .then((response) => setActors(response.data),
@@ -27,12 +28,11 @@ const getActors = () => {
   console.log(actors)
 }
 
-
 const handleCreate =(addActor) => {
   axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
   .then((response) =>{
-    console.log(response)
-    getActors()
+  console.log(response)
+  getActors()
   })
 }
 useEffect(() => {
