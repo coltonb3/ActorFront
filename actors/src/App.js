@@ -20,6 +20,7 @@ const keys = ['first_name', 'DOB']
 //    );
 // }
 
+
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
     .then((response) => setActors(response.data),
@@ -63,8 +64,10 @@ useEffect(() => {
     <div className="grid grid-cols-3 pl-2 content-center">
     <Cards />
     <Add handleCreate={handleCreate}/>
+
     <div className='list'>
       {actors.map((actor) => {
+
         return(
           <div className='actor' key={actor.id}>
             <h1>Name: {actor.name}</h1>
@@ -77,11 +80,15 @@ useEffect(() => {
           </div>
         )
       })}
-    </div> 
 
-    
 
-    </div>
+            </div>
+          )
+        })}
+      </div>
+      
+
+   
     {/* seperate search function without returning multiple lines of data */}
     {/* <Search/> */}
 
