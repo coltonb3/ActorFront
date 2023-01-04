@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react'
 const Add = (props) => {
     let newActor = { name: '', age: Number, knownFor: '', bio: '', imageURL: ''}
     const [actor, setActor] = useState(newActor)
-    
+
     const handleChange = (event) => {
         setActor({...actor, [event.target.name]: event.target.value})
       }
@@ -28,6 +28,9 @@ const Add = (props) => {
             <input type="text" name='bio' onChange={handleChange} /> 
             <label htmlFor="imageURL">Image: </label>
             <input type="text" name='imageURL' onChange={handleChange} />
+            <br/>
+            <br/>
+            <input type="submit" />
         </form>
         </>
     )
