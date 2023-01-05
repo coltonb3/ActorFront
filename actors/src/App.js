@@ -59,8 +59,8 @@ useEffect(() => {
     <div className="App">
 
     <Navbar handleCreate={handleCreate} />
-    
-    {collectionDisplay ?
+
+{collectionDisplay ?
     <div className="grid grid-cols-3 pl-2 content-center">
       {actors.map((actor) => {
         return (
@@ -69,6 +69,8 @@ useEffect(() => {
       })}
     </div> : null}
 
+
+  
   
 
 
