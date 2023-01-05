@@ -12,7 +12,6 @@ import {Actor} from './data/data';
 function App() {
 const [query, setQuery] = useState('')
 const [actors, setActors] = useState([])
-const keys = ['first_name', 'DOB']
 const [collectionDisplay, setCollectionDisplay] = useState(true)
 
 // search feature 
@@ -64,18 +63,12 @@ useEffect(() => {
     <div className="grid grid-cols-3 pl-2 content-center">
       {actors.map((actor) => {
         return (
-          <Cards actor={actor} collectionDisplay={collectionDisplay} setCollectionDisplay={setCollectionDisplay}/>
+          <Cards actor={actor} collectionDisplay={collectionDisplay} setCollectionDisplay={setCollectionDisplay} handleUpdate={handleUpdate} handleDelete={handleDelete} getActors={getActors}/>
+          
         )
       })}
     </div> : null}
 
-
-  
-  
-
-
-
-    
     {/* seperate search function without returning multiple lines of data */}
     {/* <Search/> */}
 

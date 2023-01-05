@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
 
 const Edit =(props) =>{
 
@@ -10,9 +11,17 @@ const Edit =(props) =>{
 
     const handleSubmit = (event) =>{
         event.preventDefault()
-        props.handleUpdate(actor)
+        handleUpdate(actor)
     }
-
+    const handleUpdate = (editActor) => {
+        console.log(editActor)
+        axios
+          .put('https://pacific-hollows-96763.herokuapp.com/api/actors/'+ editActor.id, editActor)
+          .then((response)=>{
+            props.getActors()
+          })
+      }
+    
     return(
         <>
             <details>
