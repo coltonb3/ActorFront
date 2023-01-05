@@ -7,12 +7,12 @@ const Cards = (props) => {
     const [infoDisplay, setInfoDisplay] = useState(false)
     
     const showInfo = () => {
-        setInfoDisplay(true)
+        setInfoDisplay(!infoDisplay)
       }
       const [edit, setEdit] = useState(false)
     
       const hideInfo = () => {
-            setInfoDisplay(false)
+            setInfoDisplay(!infoDisplay)
           console.log('test33');
       }
       
