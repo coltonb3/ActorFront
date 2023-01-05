@@ -35,9 +35,8 @@ const CardInfo = (props) => {
         : //if not, show the modal of the actor detail
         <div className='actors-modal'>
           <div className='actors-modal-box'>
-            <button className='modal-button' onClick={hideInfo}>Close</button><br />
+            <button onClick={hideInfo}>Close</button><br />
             <button className='modal-button' onClick={() => {handleDelete (props.actor)}}>Delete Actor</button><br/>
-            <img className='actors-modal-img' src={props.actor.imageURL} alt="/" />
             <p>{props.actor.name}</p>
             <p><span>Age: </span>{props.actor.age}</p>
             <p><span>Known for: </span>{props.actor.knownFor}</p>
