@@ -26,8 +26,8 @@ const Navbar = (props) => {
                 <li className='p-4'>Random</li>
             </ul>
             <button onClick={handleAddActor} className='Add'  > Add </button>
-            <div onClick={handleAddActor} className='hidden z-10 opacity-70'>
-                {!addActor ? <Add handleCreate={props.handleCreate} /> : '' }
+            <div onClick={handleAddActor}  className='z-10 opacity-70'>
+                {!addActor ? <Add handleCreate={props.handleCreate} /> :  '' }
             </div>
             <div onClick={handleNav} className='block md:hidden z-10 opacity-70' >
                 {!nav ?   <RiCloseCircleLine size={20}/> :   <HiOutlineMenuAlt1 size={20}/> }
