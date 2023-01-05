@@ -13,6 +13,7 @@ function App() {
 const [query, setQuery] = useState('')
 const [actors, setActors] = useState([])
 const keys = ['first_name', 'DOB']
+const [collectionDisplay, setCollectionDisplay] = useState(true)
 
 // search feature 
 // const search = (data) => {
@@ -25,13 +26,11 @@ const getActors = () => {
     .then((response) => setActors(response.data),
     (err) => console.error(err))
      .catch((error) => console.error(error))
-     console.log(actors)
 }
 
 const handleCreate =(addActor) => {
   axios.post('https://pacific-hollows-96763.herokuapp.com/api/actors', addActor)
   .then((response) =>{
-  console.log(response)
   getActors()
   })
 }
@@ -61,11 +60,15 @@ useEffect(() => {
 
     <Navbar handleCreate={handleCreate} />
 
+{collectionDisplay ?
+    <div className="grid grid-cols-3 pl-2 content-center">
+      {actors.map((actor) => {
+        return (
+          <Cards actor={actor} collectionDisplay={collectionDisplay} setCollectionDisplay={setCollectionDisplay}/>
+        )
+      })}
+    </div> : null}
 
-    <Cards actors={actors}/>
-
-
-    <Add handleCreate={handleCreate}/>
 
   
   
