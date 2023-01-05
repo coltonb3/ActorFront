@@ -12,11 +12,14 @@ const Add = (props) => {
       const handleSubmit = (event) => {
         event.preventDefault()
         props.handleCreate(actor)
+        props.handleAddActor(false)
+        console.log('close')
       }
 
+  
     return (
 
-        <form className='flex flex-col text-black' onSubmit={handleSubmit}>
+        <form className='flex flex-col text-black ' onSubmit={handleSubmit}>
             <label htmlFor="name">Name:</label>
             <input type="text" name='name' onChange={handleChange} />
             <label htmlFor="age">Age: </label>
@@ -34,4 +37,4 @@ const Add = (props) => {
     )
 }
 
-export default Add
+export default Add 
