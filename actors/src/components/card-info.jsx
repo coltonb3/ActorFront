@@ -8,7 +8,6 @@ const CardInfo = (props) => {
     
     const hideInfo = () => {
         props.setInfoDisplay(false)
-        console.log('test');
     }
     
     const toggleEdit = () => {
@@ -35,16 +34,17 @@ const CardInfo = (props) => {
         : //if not, show the modal of the actor detail
         <div className='actors-modal'>
           <div className='actors-modal-box'>
-            <button onClick={hideInfo}>Close</button><br />
-            <button className='modal-button' onClick={() => {handleDelete (props.actor)}}>Delete Actor</button><br/>
             <p>{props.actor.name}</p>
             <p><span>Age: </span>{props.actor.age}</p>
             <p><span>Known for: </span>{props.actor.knownFor}</p>
             <p><span>Bio: </span>{props.actor.bio}</p>
-            <button className='modal-button' onClick={() => [toggleEdit()]}>Edit Info</button>
           </div>
-        </div>}
-       </>
+          {/* <button className='btn btn-blue' onClick={() => [toggleEdit()]}>Edit Info</button>
+          <button onClick={hideInfo}>Close</button><br />
+          <button className='btn btn-blue' onClick={() => {handleDelete (props.actor)}}>Delete Actor</button><br/> */}
+        </div>  
+              }
+      </>
     )
 }
 
