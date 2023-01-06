@@ -14,11 +14,23 @@ const [query, setQuery] = useState('')
 const [actors, setActors] = useState([])
 const [collectionDisplay, setCollectionDisplay] = useState(true)
 
-// search feature 
-// const search = (data) => {
-//    return data.filter((item) => keys.some((key) => item[key].toLowerCase().includes(query))
-//    );
-// }
+const [searchInput, setSearchInput] = useState('')
+const [filteredResults, setFilteredResults]  = useState([])
+
+
+const searchItems = (searchValue) => {
+  setSearchInput(searchValue)
+  if (searchValue.length > 0) {
+      const searchResults = actors.filter((results) => {
+          return Object.values(results).join('').toLowerCase().includes(searchInput.toLowerCase())
+      })
+  setFilteredResults(searchResults)
+  } else {
+  setFilteredResults(actors)
+  }
+}
+
+
 
 const getActors = () => {
   axios.get('https://pacific-hollows-96763.herokuapp.com/api/actors')
@@ -57,14 +69,24 @@ useEffect(() => {
   return (
     <div className="App">
 
-    <Navbar handleCreate={handleCreate} />
+      <Navbar handleCreate={handleCreate} />
+      
 
-{collectionDisplay ?
+      <div>
+        <form class="bg-grey shadow-mb rounded px-5 pt-5 pb-6 mb-6">
+          <input type="text" onChange={(event) => searchItems(event.target.value)} />
+        </form>
+      </div>
+
+
+      {collectionDisplay ?
+      
     <div className="grid grid-cols-3 pl-2 content-center">
-      {actors.map((actor) => {
+       {filteredResults.map((actor) => {
         return (
+          <>
           <Cards actor={actor} collectionDisplay={collectionDisplay} setCollectionDisplay={setCollectionDisplay} handleUpdate={handleUpdate} handleDelete={handleDelete} getActors={getActors}/>
-          
+          </>
         )
       })}
     </div> : null}
