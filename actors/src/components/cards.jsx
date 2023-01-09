@@ -1,21 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
+import CardInfo from './card-info'
+import Edit from './Edit'
 
-const Cards = () => {
+const Cards = (props) => {
+
+    const [infoDisplay, setInfoDisplay] = useState(false)
+    
+    const showInfo = () => {
+        setInfoDisplay(!infoDisplay)
+      }
+      const [edit, setEdit] = useState(false)
+    
+      const hideInfo = () => {
+            setInfoDisplay(!infoDisplay)
+          console.log('test33');
+      }
+      
+      const toggleEdit = () => {
+          setEdit(!edit)
+          console.log('edit');
+      }
+  
     return (
+       <>
+        <div onClick={showInfo} className='max-w-[1640px] mx-auto p-4 py-12 '>
+            <div className='rounded-xl relative' key={props.actor.id}>
+                <div className='absolute w-full h-full bg-black/400 rounded-xl text-white'>
+                    {/* <p className='font-bold text 2xl px-2 pt-4 absolute bottom-0 left-0 ...'>{props.actor.name}</p> */}
+                </div>
+                <img className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl' src={props.actor.imageURL} alt='/' />
 
-<div className='max-w-[1640px] mx-auto p-4 py-12 '>
-    <div className='rounded-xl relative'>
-         <div className='absolute w-full h-full bg-black/400 rounded-xl text-white'>
-            <p className='font-bold text 2xl px-2 pt-4'>NAME</p>
-            <p className='px-2'>TEST</p>
+                {infoDisplay ?
+                    <div>
+                        <CardInfo getActors={props.getActors} actor={props.actor} actors={props.actors} infoDisplay={infoDisplay} setInfoDisplay={setInfoDisplay}/>
+
+                    </div> 
+                : null}
+            
+
             </div>
-            <img className='max-h-[160px] md:max-h-[200px] w-full object-cover rounded-xl' src="http://img1.wsimg.com/isteam/ip/b0f29b88-88a7-4bda-a6d6-6962d35ec1bd/3faed608-92cd-4504-9fd3-29ba45916a82.jpg" alt='/' />
+            <button className='btn btn-blue' onClick={toggleEdit}>Edit Info</button>
+            {edit ? //if edit is true, then bring up the edit form
+        <div className='actors-modal'>
+          <div className='actors-modal-box'>
+            <Edit actor={props.actor} getActors={props.getActors} handleDelete={props.handleDelete}/>
+          </div>
         </div>
-</div>
+        : //if not, show the modal of the actor detail
+        <div className='actors-modal'>
+          <div className='actors-modal-box'>
+            {/* <p>{props.actor.name}</p>
+            <p><span>Age: </span>{props.actor.age}</p>
+            <p><span>Known for: </span>{props.actor.knownFor}</p>
+            <p><span>Bio: </span>{props.actor.bio}</p> */}
+          </div>
+          </div>
+                    }
 
-
+            </div>
+               
+       </>
     )
-
-    }
+}
 
 export default Cards
+
+
