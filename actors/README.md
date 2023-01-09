@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+# Welcome to ActorDB
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ActorDB is your home for keeping track of the actors you love. When you consume as much cinema as you do, it can be difficult to remember names and where you saw this person before. With ActorDB, you can simply add the actor to your personal database with biographical information and the movies in which you've seen them! Now the next time you're taking in a film and you see a familiar face, you can fire up ActorDB and scroll through your collected thespians.
 
-## Available Scripts
+A README.md file with explanations of the technologies used, the approach taken, unsolved problems, user stories, and notes to yourself so you can come back to your project later in the course and be able to pick up your train of thought, etc
+Have links to your hosted and working apps in the README.md files in your GitHub repos.
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+The backend of this app is built with a Django framework using Python. It is deployed via Heroku and accessible by other sites. The frontend is built using react.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Approach Taken
+The idea was born of a mutual appreciate for Nicolas Cage's body of work and mastery of his art. We felt that building a crud app around actors would provide a benefit for any cinema lover in the same way Letterboxd provides a space for voices.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In order to avoid merge conflicts, the repos were created by one developer and the components were factored by individual developers before being added to the App.js file.
 
-### `npm test`
+## Unsolved Problems
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Future Goals
+User authentication, using IMdb API for cross referencing films/adding directly to user db
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Links
+Backend: https://pacific-hollows-96763.herokuapp.com/api/actors
