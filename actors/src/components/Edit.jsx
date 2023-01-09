@@ -24,28 +24,34 @@ const Edit =(props) =>{
     
     return(
         <>
-            <details>
+            <details className='flex flex-col text-black justify-center items-center'>
                 <summary>Edit Actor</summary>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Name: </label>
-                    <input type="text" name="name" value={actor.name} onChange={handleChange}/>
+                    <input type="text" name="name" className='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500' value={actor.name} onChange={handleChange}/>
                     <br />
                     <label htmlFor="age">Age: </label>
-                    <input type="number" name="age" value={actor.age} onChange={handleChange}/>
+                    <input type="number" name="age" className='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500' value={actor.age} onChange={handleChange}/>
                     <br />
                     <label htmlFor="knownFor">Known For: </label>
-                    <input type="text" name="knownFor" value={actor.knownFor} onChange={handleChange}/>
+                    <input type="text" name="knownFor" className='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500' value={actor.knownFor} onChange={handleChange}/>
                     <br />
                     <label htmlFor="bio">Bio: </label>
-                    <input type="text" name="bio" value={actor.bio} onChange={handleChange}/>
+                    <input type="text" name="bio" className='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500' value={actor.bio} onChange={handleChange}/>
                     <br />
                     <label htmlFor="imageURL">Image: </label>
-                    <input type="text" name="imageURL" value={actor.imageURL} onChange={handleChange}/>
+                    <input type="text" name="imageURL" className='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500' value={actor.imageURL} onChange={handleChange}/>
                     <input type="submit"/>
                 </form>
             </details>
-
+                        <button className='btn btn-blue' onClick={props.handleDelete} value={props.actor.id}>Delete Actor</button><br/>
         </>
+        
     )
 }
 

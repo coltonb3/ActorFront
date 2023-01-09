@@ -43,7 +43,7 @@ const Cards = (props) => {
             {edit ? //if edit is true, then bring up the edit form
         <div className='actors-modal'>
           <div className='actors-modal-box'>
-            <Edit actor={props.actor} getActors={props.getActors} />
+            <Edit actor={props.actor} getActors={props.getActors} handleDelete={props.handleDelete}/>
           </div>
         </div>
         : //if not, show the modal of the actor detail
@@ -56,8 +56,7 @@ const Cards = (props) => {
           </div>
           </div>
                     }
-             <button onClick={hideInfo}>Close</button><br />
-            <button className='btn btn-blue' onClick={props.handleDelete} value={props.actor.id}>Delete Actor</button><br/>
+
             </div>
                
        </>

@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import {HiOutlineMenuAlt1} from 'react-icons/hi'
 import {RiCloseCircleLine} from 'react-icons/ri'
-import Add from './add'
 
 const Navbar = (props) => {
     const [nav, setNav] = useState(false)
@@ -15,20 +14,13 @@ const Navbar = (props) => {
             setAddActor(!addActor);
             console.log("test")
         }
+        const [activeNav, setActiveNav] = useState('#')
 
     return (
-        <div className='flex justify-between items-center h-20 max-w-[1240px] mx-auto px-4 text-white'>
-            <h1 className='w-full text-3xl font-bold text-[#df3000]'>Home</h1>
-            <ul className='hidden md:flex'>
-                <li className='p-4'>Home</li>
-                <li className='p-4'>Search</li>
-                <li className='p-4'>Movies</li>
-                <li className='p-4'>Random</li>
-            </ul>
-            <button onClick={handleAddActor} className='Add'  > Add </button>
-            <div onClick={handleAddActor}  className='z-10 opacity-70 fixed right-0 top-2 w-[60%] h-full '>
-                {!addActor  ? <Add handleCreate={props.handleCreate} handleAddActor={handleAddActor}  /> : '' }
-            </div>
+        <div className='flex   fixed items-center h-20 max-w-[1240px] mx-auto px-4 text-white z-10  '>
+            <a href="#" onClick={() => setActiveNav('#')}className={activeNav=== '#' ? 'active' : ''}>Home </a>
+            <a href="#search" onClick={() => setActiveNav('#search')}className={activeNav=== 'search' ? 'active' : ''}>Search</a>
+            <a href="#add" onClick={() => setActiveNav('#add')}className={activeNav=== 'add' ? 'active' : ''}>Add</a>
             <div onClick={handleNav} className='block md:hidden z-10 opacity-70' >
                 {!nav ?   <RiCloseCircleLine size={20}/> :   <HiOutlineMenuAlt1 size={20}/> }
                 <div className={!nav ? 'fixed left-0 top-0 w-[60%] border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500' : 'fixed left-[-100%] ' }>
