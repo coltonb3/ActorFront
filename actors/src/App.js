@@ -69,16 +69,8 @@ useEffect(() => {
   return (
     <div className="App">
 
-      <Navbar handleCreate={handleCreate} />
+      <Navbar />
       
-
-      <div>
-        <form class="bg-grey shadow-mb rounded px-5 pt-5 pb-6 mb-6">
-          <input type="text" onChange={(event) => searchItems(event.target.value)} />
-        </form>
-      </div>
-
-
       {collectionDisplay ?
       
     <div className="grid grid-cols-3 pl-2 content-center">
@@ -90,26 +82,24 @@ useEffect(() => {
         )
       })}
     </div> : null}
+    <br/>
+    <br/>
+    <br/>
+    <div className='flex flex-col text-black justify-center items-center'>
+        <section id='search'>
+        <form class='px-5 py-3 w-48 border-0 
+            focus:outline-0 focus:w-full duration-500'>
+        <label htmlFor="Search">Search</label> 
+        <input type="text" onChange={(event) => searchItems(event.target.value)} />
+          
+        </form>
+        </section>
+      </div>
 
-    {/* seperate search function without returning multiple lines of data */}
-    {/* <Search/> */}
-
-
-
-{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
-     {/* <div className='flex items-center flex-col py-16'>
-//        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
-//        <br/>
-//   <Other data={search(Actor)}/> */}
- 
-
-{/* returning multiple lines of data/ searching all items stored locally..will have to link to a 3rd party api but should be (easy(i hope)) */}
-     {/* <div className='flex items-center flex-col py-16'>
-//        <input type="search" placeholder='search' className='w-full md:w-auto sm:w-auto h-9 '  onChange={e=> setQuery(e.target.value)}/>
-//        <br/>
-//        <Other data={search(Actor)}/>
-//      */}
-    
+      <br/>
+      <br/>
+      <br/>
+      <Add />
 </div>
   );
 }

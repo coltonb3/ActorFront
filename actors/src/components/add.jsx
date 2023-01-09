@@ -20,7 +20,7 @@ const Add = (props) => {
     return (
       <section id='add'>
         <form className='flex flex-col text-black justify-center items-center  ' onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Name:</label>
             <input type="text" name='name' onChange={handleChange} className='px-5 py-3 w-48 border-0 
             focus:outline-0 focus:w-full duration-500' />
             <label htmlFor="age">Age: </label>
